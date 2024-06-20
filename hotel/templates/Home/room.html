@@ -1,0 +1,43 @@
+{% extends "Home/base.html"%}
+{% block basepage %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room</title>
+</head>
+<body>
+    
+    <div class="px-4 py-16 mx-auto sm:max-w-xl   md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full  ">
+            {% for items in all %}
+          <div class=" h-[300]  overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
+            <img class="h-1/2  w-[100%] object-cover" src="{{ items.image.url }}" alt="" />
+            <div class="p-5 border border-t-0">
+              <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
+                {{ items.room_number }}
+                <a href="/" class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700" aria-label="Category" title="traveling">traveling</a>
+                <span class="text-gray-600">— 28 Dec 2020</span>
+              </p>
+              <a href="/" aria-label="Category" title="Visit the East" class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">Visit the East</a>
+              <p class="mb-2 text-gray-700">
+                {{ items.type }}
+              </p>
+              <p class="mb-2 text-gray-700">
+                {{ items.price }}
+              </p>
+              <p class="mb-2 text-gray-700">
+                {{ items.amenities }}
+              </p>
+              <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Book Now</a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+    </div>
+</body>
+</html>
+{% endblock %}
