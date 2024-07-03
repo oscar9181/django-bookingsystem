@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Room(models.Model):
-  image = models.ImageField(upload_to="images/", default= 'default.jpg')
+  image = models.ImageField(upload_to="images/")
   room_number = models.IntegerField(unique=True)
   type = models.CharField(max_length=50)
   price = models.DecimalField(max_digits=10, decimal_places=2)

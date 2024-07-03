@@ -13,7 +13,12 @@
         <h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign up to your account</h2>
         <form method="POST" action="" class="mt-8">
             {% csrf_token %}
-            
+            {{ form.non_field_errors }}
+            {% for field in form %}
+            <p>
+                {{ field.errors}}
+            </p>
+            {% endfor %}
             <div class="mt-6">
                 <label for="id_username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                 <div class="mt-2">
@@ -45,6 +50,7 @@
             <div class="mt-6">
                 <button type="submit" class="block w-full bg-red-500 py-2 px-4 text-white font-semibold text-sm rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white">Sign up</button>
             </div>
+            <a href="{% url 'login' %}">Already have an Account? Sign in</a>
         </form>
     </div>
 </div>

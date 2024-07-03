@@ -8,12 +8,13 @@ def register(request):
     form=RegisterUserForm()
     if request.method == 'POST':
        form =RegisterUserForm(request.POST)
-       if form.is_valid:
+       if form.is_valid():
            form.save()
            return redirect('home')   
        else:
-           form =RegisterUserForm()
-    
+           print(form.errors)
+    else:
+        form =RegisterUserForm()
     return render(request,'accounts/register.html',{'form': form})
 
 def login(request):
@@ -31,5 +32,4 @@ def login(request):
             messages.error(request,'Username or Password is incorrect')
             return render(request,'accounts/login.html')
     
-        
     return render(request,'accounts/login.html')
